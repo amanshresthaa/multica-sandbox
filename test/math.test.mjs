@@ -13,3 +13,10 @@ test('median does not mutate input', () => {
   median(values);
   assert.deepEqual(values, [3, 1, 2]);
 });
+test('median sorts numerically, not lexically', () => assert.equal(median([10, 2, 1]), 2));
+test('median of large positive pair does not overflow', () =>
+  assert.equal(median([Number.MAX_VALUE, Number.MAX_VALUE]), Number.MAX_VALUE));
+test('median of large negative pair does not overflow', () =>
+  assert.equal(median([-Number.MAX_VALUE, -Number.MAX_VALUE]), -Number.MAX_VALUE));
+test('median of opposite extremes is zero', () => assert.equal(median([-Number.MAX_VALUE, Number.MAX_VALUE]), 0));
+test('median keeps subnormal precision', () => assert.equal(median([Number.MIN_VALUE, Number.MIN_VALUE]), Number.MIN_VALUE));
