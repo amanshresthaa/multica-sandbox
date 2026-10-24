@@ -1,0 +1,15 @@
+{
+  "name": "multica-sandbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Disposable sandbox for Multica agent smoke tests. No production code, no secrets.",
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "typecheck": "node scripts/typecheck.mjs",
+    "test": "node --test 'test/**/*.test.mjs'",
+    "build": "node scripts/build.mjs"
+  }
+}
